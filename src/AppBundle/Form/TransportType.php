@@ -33,6 +33,9 @@ class TransportType extends AbstractType
                 'attr' => ['autofocus' => true],
                 'label' => 'label.title',
             ])
+            ->add('standing')
+            ->add('driving')
+            ->add('offloading')
         ;
     }
 

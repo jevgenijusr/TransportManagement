@@ -7,6 +7,9 @@
 
     {{ form_start(form) }}
         {{ form_row(form.name) }}
+        {{ form_row(form.standing) }}
+        {{ form_row(form.driving) }}
+        {{ form_row(form.offloading) }}
 
         <input type="submit" value="{{ 'label.create_transport'|trans }}" class="btn btn-primary" />
 
