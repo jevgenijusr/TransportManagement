@@ -1,0 +1,39 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body_id 'admin_timesheet_show' %}
+
+{% block main %}
+    <h1>{{ timesheet.name }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>{{ 'label.name'|trans }}</th>
+                <td>{{ timesheet.name|md2html }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'label.date'|trans }}</th>
+                <td>{{ timesheet.date|date('Y-m-d') }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="section">
+        <a href="{{ path('admin_timesheet_edit', { id: timesheet.id }) }}" class="btn btn-lg btn-block btn-success">
+            <i class="fa fa-edit"></i> {{ 'action.edit_contents'|trans }}
+        </a>
+    </div>
+
+    <div class="section">
+        {{ include('admin/timesheet/_form.html.twig', {
+            form: delete_form,
+            button_label: 'action.delete_timesheet'|trans,
+            button_css: 'btn btn-lg btn-block btn-danger',
+            show_confirmation: true,
+        }, with_context = false) }}
+    </div>
+
+    {{ show_source_code(_self) }}
+{% endblock %}
