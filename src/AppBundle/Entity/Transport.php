@@ -109,4 +109,9 @@ class Transport
     {
         $this->driving = $driving;
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

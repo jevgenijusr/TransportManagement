@@ -25,6 +25,7 @@ class TimesheetType extends AbstractType
                 'attr' => ['autofocus' => true],
                 'label' => 'label.title',
             ])
+            ->add('transport')
             ->add('date', DateType::class, array(
                 'widget' => 'single_text',
             ))

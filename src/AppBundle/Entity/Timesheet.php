@@ -24,6 +24,11 @@ class Timesheet
     private $name;
 
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Transport")
+     */
+    private $transport;
+
+    /**
      * @ORM\Column(type="date")
      */
     private $date;
@@ -234,5 +239,21 @@ class Timesheet
     public function setDepartureFromClientTime($departureFromClientTime)
     {
         $this->departureFromClientTime = $departureFromClientTime;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTransport()
+    {
+        return $this->transport;
+    }
+
+    /**
+     * @param mixed $transport
+     */
+    public function setTransport($transport)
+    {
+        $this->transport = $transport;
     }
 }
