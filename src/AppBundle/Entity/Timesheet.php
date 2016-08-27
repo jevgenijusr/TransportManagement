@@ -74,6 +74,16 @@ class Timesheet
     private $finishingMileage;
 
     /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $distance;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */    
+    private $cost;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -255,5 +265,37 @@ class Timesheet
     public function setTransport($transport)
     {
         $this->transport = $transport;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDistance()
+    {
+        return $this->distance;
+    }
+
+    /**
+     * @param mixed $distance
+     */
+    public function setDistance($distance)
+    {
+        $this->distance = $distance;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCost()
+    {
+        return $this->cost;
+    }
+
+    /**
+     * @param mixed $cost
+     */
+    public function setCost($cost)
+    {
+        $this->cost = $cost;
     }
 }

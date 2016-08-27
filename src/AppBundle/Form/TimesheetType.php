@@ -1,6 +1,5 @@
 <?php
 
-
 namespace AppBundle\Form;
 
 use AppBundle\Entity\Timesheet;
@@ -8,13 +7,23 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use AppBundle\Services\TimesheetManager;
 
 /**
  * Defines the form used to create and manipulate transports.
  */
 class TimesheetType extends AbstractType
 {
+    private $timesheetManager;
+    
+    public function __construct(TimesheetManager $timesheetManager)
+    {
+        $this->timesheetManager = $timesheetManager;
+    }
+    
     /**
      * {@inheritdoc}
      */
@@ -46,6 +55,35 @@ class TimesheetType extends AbstractType
             ))
             ->add('finishingMileage')
         ;
+
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+
+            $form = $event->getForm();
+            $timesheet = $event->getData();
+            if ($timesheet || null !== $timesheet->getId()) {
+                $form->add('distance');
+                $form->add('cost');
+            }
+        });
+
+        $builder->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) {
+
+            $timesheet = $event->getData();
+            
+            $distance = $timesheet->getFinishingMileage() - $timesheet->getStartingMileage();
+
+            $timesheet->setDistance($distance);
+            
+        });
+
+        $builder->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) {
+
+            $timesheet = $event->getData();
+
+            $totalCost = $this->timesheetManager->getTotalCost($timesheet);
+                
+            $timesheet->setCost($totalCost);
+        });
     }
 
     /**

@@ -16,7 +16,6 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
  * Controller used to manage timesheets in the backend.
  *
  * @Route("/admin/timesheet")
- * @Security("has_role('ROLE_ADMIN')")
  */
 class TimesheetController extends Controller
 {

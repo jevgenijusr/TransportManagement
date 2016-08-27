@@ -8,20 +8,38 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>{{ 'label.name'|trans }}</th>
-            <th><i class="fa fa-cogs"></i> {{ 'label.actions'|trans }}</th>
+            <th style="width:20px;"> {{ 'label.transport'|trans }}</th>
+            <th style="width:20px;"> {{ 'label.date'|trans }}</th>
+            <th style="width:20px;"> {{ 'label.client'|trans }}</th>
+            <th style="width:20px;"> {{ 'label.departure_from_terminal_time'|trans }}</th>
+            <th style="width:20px;"> {{ 'label.starting_mileage'|trans }}</th>
+            <th style="width:20px;"> {{ 'label.arrival_to_client_time'|trans }}</th>
+            <th style="width:20px;"> {{ 'label.offloading_time'|trans }}</th>
+            <th style="width:20px;"> {{ 'label.departure_from_client_time'|trans }}</th>
+            <th style="width:20px;"> {{ 'label.arrival_at_terminal_time'|trans }}</th>
+            <th style="width:20px;"> {{ 'label.finishing_mileage'|trans }}</th>
+            <th style="width:20px;"> {{ 'label.distance'|trans }}</th>
+            <th style="width:20px;"> {{ 'label.cost'|trans }}</th>
         </tr>
         </thead>
         <tbody>
         {% for timesheet in timesheets %}
             <tr>
-                <td>{{ timesheet.name }}</td>
+                <td>{{ timesheet.transport }}</td>
+                <td>{{ timesheet.date|date('Y-m-d') }}</td>
+                <td>{{ timesheet.client }}</td>
+                <td>{{ timesheet.departureFromTerminalTime|date('H:i') }}</td>
+                <td>{{ timesheet.startingMileage }}</td>
+                <td>{{ timesheet.arrivalToClientTime|date('H:i') }}</td>
+                <td>{{ timesheet.offloadingTime }}</td>
+                <td>{{ timesheet.departureFromClientTime|date('H:i') }}</td>
+                <td>{{ timesheet.arrivalAtTerminalTime|date('H:i') }}</td>
+                <td>{{ timesheet.finishingMileage }}</td>
+                <td>{{ timesheet.distance }}</td>
+                <td>{{ timesheet.cost }}</td>
+
                 <td>
                     <div class="item-actions">
-                        <a href="{{ path('admin_timesheet_show', { id: timesheet.id }) }}" class="btn btn-sm btn-default">
-                            {{ 'action.show'|trans }}
-                        </a>
-
                         <a href="{{ path('admin_timesheet_edit', { id: timesheet.id }) }}" class="btn btn-sm btn-primary">
                             <i class="fa fa-edit"></i> {{ 'action.edit'|trans }}
                         </a>
@@ -44,7 +62,7 @@
         </a>
     </div>
 
-    {{ parent() }}
+    {#{{ parent() }}#}
 
-    {{ show_source_code(_self) }}
+    {#{{ show_source_code(_self) }}#}
 {% endblock %}

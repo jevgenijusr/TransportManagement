@@ -314,6 +314,51 @@
                 <source>help.more_information</source>
                 <target><![CDATA[For more information, check out the <a href="http://symfony.com/doc">Symfony doc</a>.]]></target>
             </trans-unit>
+
+            <trans-unit id="label.transport">
+                <source>label.transport</source>
+                <target>Transport</target>
+            </trans-unit>
+            <trans-unit id="label.date">
+                <source>label.date</source>
+                <target>Date</target>
+            </trans-unit>
+            <trans-unit id="label.client">
+                <source>label.client</source>
+                <target>Client</target>
+            </trans-unit>
+            <trans-unit id="label.departure_from_terminal_time">
+                <source>label.departure_from_terminal_time</source>
+                <target>Departure from terminal</target>
+            </trans-unit>
+            <trans-unit id="label.starting_mileage">
+                <source>label.starting_mileage</source>
+                <target>Starting mileage</target>
+            </trans-unit>
+            <trans-unit id="label.arrival_to_client_time">
+                <source>label.arrival_to_client_time</source>
+                <target>Arrival to client</target>
+            </trans-unit>
+            <trans-unit id="label.offloading_time">
+                <source>label.offloading_time</source>
+                <target>Offloading time</target>
+            </trans-unit>
+            <trans-unit id="label.departure_from_client_time">
+                <source>label.departure_from_client_time</source>
+                <target>Departure from client</target>
+            </trans-unit>
+            <trans-unit id="label.arrival_at_terminal_time">
+                <source>label.arrival_at_terminal_time</source>
+                <target>Arrival at terminal</target>
+            </trans-unit>
+            <trans-unit id="label.finishing_mileage">
+                <source>label.finishing_mileage</source>
+                <target>Finishing mileage</target>
+            </trans-unit>
+            <trans-unit id="label.distance">
+                <source>label.distance</source>
+                <target>Distance</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
