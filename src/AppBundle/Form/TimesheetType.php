@@ -30,10 +30,6 @@ class TimesheetType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', null, [
-                'attr' => ['autofocus' => true],
-                'label' => 'label.title',
-            ])
             ->add('transport')
             ->add('date', DateType::class, array(
                 'widget' => 'single_text',
