@@ -32,11 +32,11 @@ services:
         class: AppBundle\Security\GuardAuthenticator
         arguments: ['@doctrine.orm.entity_manager', '@security.encoder_factory', '@router']
 
-    app.timesheet_manager:
-        class: AppBundle\Services\TimesheetManager
-
-    app.timesheet_type:
-        class: AppBundle\Form\TimesheetType
-        arguments: ['@app.timesheet_manager']
-        tags:
-            - { name: form.type }
+#    app.timesheet_manager:
+#        class: AppBundle\Services\TimesheetManager
+#
+#    app.timesheet_type:
+#        class: AppBundle\Form\TimesheetType
+#        arguments: ['@app.timesheet_manager']
+#        tags:
+#            - { name: form.type }

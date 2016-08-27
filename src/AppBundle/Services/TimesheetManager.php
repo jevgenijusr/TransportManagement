@@ -10,14 +10,30 @@ class TimesheetManager
 
     private $transport;
     
-    public function getTotalCost(Timesheet $timesheet)
+    public function __construct(Timesheet $timesheet)
     {
         $this->timesheet = $timesheet;
         $this->transport = $this->timesheet->getTransport();
-        
+    }
+    
+    public function getTotalCost()
+    {
         $totalCost = $this->getDrivingCost() + $this->getStandingCost() + $this->getOffloadingCost(); 
         
         return $totalCost;
+    }
+    
+    public function getTimeSpentAtClient() 
+    {
+        return $totalTimeSpentAtTheClient = $this->getTimeIntervalInMinutes(
+            $this->timesheet->getArrivalToClientTime(),
+            $this->timesheet->getDepartureFromClientTime()
+        );
+    }
+
+    private function getStandingTime()
+    {
+        return $this->getTimeSpentAtClient() - $this->timesheet->getOffloadingTime();
     }
 
     private function getDrivingCost()
@@ -49,16 +65,6 @@ class TimesheetManager
         $costPerMinute = $this->transport->getStanding() / 60;
 
         return $this->getStandingTime() * $costPerMinute;
-    }
-
-    private function getStandingTime()
-    {
-        $totalTimeSpentAtTheClient = $this->getTimeIntervalInMinutes(
-            $this->timesheet->getArrivalToClientTime(),
-            $this->timesheet->getDepartureFromClientTime()
-        );
-
-        return $totalTimeSpentAtTheClient - $this->timesheet->getOffloadingTime();
     }
 
     private function getTimeIntervalInMinutes(\DateTime $startTime, \DateTime $endTime)

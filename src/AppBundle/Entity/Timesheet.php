@@ -8,6 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity()
  * @ORM\Table(name="symfony_demo_timesheet")
+ * @Assert\Callback({"AppBundle\Validators\TimesheetValidator", "validate"})
  */
 class Timesheet
 {

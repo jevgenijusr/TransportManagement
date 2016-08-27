@@ -17,13 +17,6 @@ use AppBundle\Services\TimesheetManager;
  */
 class TimesheetType extends AbstractType
 {
-    private $timesheetManager;
-    
-    public function __construct(TimesheetManager $timesheetManager)
-    {
-        $this->timesheetManager = $timesheetManager;
-    }
-    
     /**
      * {@inheritdoc}
      */
@@ -76,7 +69,9 @@ class TimesheetType extends AbstractType
 
             $timesheet = $event->getData();
 
-            $totalCost = $this->timesheetManager->getTotalCost($timesheet);
+            $timesheetManager = new TimesheetManager($timesheet);
+
+            $totalCost = $timesheetManager->getTotalCost();
                 
             $timesheet->setCost($totalCost);
         });
