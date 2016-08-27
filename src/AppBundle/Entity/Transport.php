@@ -25,16 +25,28 @@ class Transport
 
     /**
      * @ORM\Column(type="string", nullable=true)
+     * @Assert\Type(
+     *     type="integer",
+     *     message="The value {{ value }} is not a valid {{ type }}."
+     * )
      */
     private $standing;
 
     /**
      * @ORM\Column(type="string", nullable=true)
+     * @Assert\Type(
+     *     type="integer",
+     *     message="The value {{ value }} is not a valid {{ type }}."
+     * )
      */
     private $driving;
 
     /**
      * @ORM\Column(type="string", nullable=true)
+     * @Assert\Type(
+     *     type="integer",
+     *     message="The value {{ value }} is not a valid {{ type }}."
+     * )
      */
     private $offloading;
 

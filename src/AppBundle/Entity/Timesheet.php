@@ -25,6 +25,7 @@ class Timesheet
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\DateTime()
      */
     private $date;
 
@@ -35,11 +36,16 @@ class Timesheet
 
     /**
      * @ORM\Column(type="time")
+     * @Assert\Time()
      */
     private $departureFromTerminalTime;
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\Type(
+     *     type="integer",
+     *     message="The value {{ value }} is not a valid {{ type }}."
+     * )
      */
     private $startingMileage;
 
@@ -50,26 +56,40 @@ class Timesheet
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\Type(
+     *     type="integer",
+     *     message="The value {{ value }} is not a valid {{ type }}."
+     * )
      */
     private $offloadingTime;
 
     /**
      * @ORM\Column(type="time")
+     * @Assert\Time()
      */
     private $departureFromClientTime;
 
     /**
      * @ORM\Column(type="time")
+     * @Assert\Time()
      */
     private $arrivalAtTerminalTime;
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\Type(
+     *     type="integer",
+     *     message="The value {{ value }} is not a valid {{ type }}."
+     * )
      */
     private $finishingMileage;
 
     /**
      * @ORM\Column(type="string", nullable=true)
+     * @Assert\Type(
+     *     type="integer",
+     *     message="The value {{ value }} is not a valid {{ type }}."
+     * )
      */
     private $distance;
 
