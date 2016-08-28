@@ -84,23 +84,6 @@ class TransportController extends Controller
     }
 
     /**
-     * Finds and displays a Post entity.
-     *
-     * @Route("/{id}", requirements={"id": "\d+"}, name="admin_transport_show")
-     * @Method("GET")
-     */
-    public function showAction(Transport $transport)
-    {
-
-        $deleteForm = $this->createDeleteForm($transport);
-
-        return $this->render('admin/transport/show.html.twig', [
-            'transport'        => $transport,
-            'delete_form' => $deleteForm->createView(),
-        ]);
-    }
-
-    /**
      * Displays a form to edit an existing Transport entity.
      *
      * @Route("/{id}/edit", requirements={"id": "\d+"}, name="admin_transport_edit")

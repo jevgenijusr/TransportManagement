@@ -399,6 +399,54 @@
                 <source>label.delete_timesheet</source>
                 <target>Delete timesheet</target>
             </trans-unit>
+            <trans-unit id="title.timesheet_choose">
+                <source>title.timesheet_choose</source>
+                <target>Choose User and Date (month)</target>
+            </trans-unit>
+            <trans-unit id="click.to_see_all_timesheets_for_all_users">
+                <source>click.to_see_all_timesheets_for_all_users</source>
+                <target>Click to see all existing timesheets without filtering</target>
+            </trans-unit>
+            <trans-unit id="title.transport_list">
+                <source>title.transport_list</source>
+                <target>Transport list</target>
+            </trans-unit>
+            <trans-unit id="label.name">
+                <source>label.name</source>
+                <target>Transport name</target>
+            </trans-unit>
+            <trans-unit id="title.edit_transport">
+                <source>title.edit_transport</source>
+                <target>Edit transport</target>
+            </trans-unit>
+            <trans-unit id="action.delete_transport">
+                <source>action.delete_transport</source>
+                <target>Delete transport</target>
+            </trans-unit>
+            <trans-unit id="delete_transport_modal.title">
+                <source>delete_transport_modal.title</source>
+                <target>Delete transport</target>
+            </trans-unit>
+            <trans-unit id="delete_transport_modal.body">
+                <source>delete_transport_modal.body</source>
+                <target>Are you sure want to delete transport?</target>
+            </trans-unit>
+            <trans-unit id="label.delete_transport">
+                <source>label.delete_transport</source>
+                <target>Delete transport</target>
+            </trans-unit>
+            <trans-unit id="action.create_transport">
+                <source>action.create_transport</source>
+                <target>Create transport</target>
+            </trans-unit>
+            <trans-unit id="title.transport_new">
+                <source>title.transport_new</source>
+                <target>New transport</target>
+            </trans-unit>
+            <trans-unit id="label.create_transport">
+                <source>label.create_transport</source>
+                <target>Create transport</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

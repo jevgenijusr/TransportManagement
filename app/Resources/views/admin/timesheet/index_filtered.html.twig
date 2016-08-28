@@ -48,7 +48,12 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4" align="center">{{ 'timesheet.no_timesheets_found'|trans }}</td>
+                <td colspan="4" align="center">
+                    {{ 'timesheet.no_timesheets_found'|trans }}
+                    <a href="{{ path('admin_timesheet_index') }}">
+                        {{ 'click.to_see_all_timesheets_for_all_users'|trans }}
+                    </a>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
