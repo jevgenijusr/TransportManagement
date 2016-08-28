@@ -68,7 +68,7 @@ class GuardAuthenticator extends AbstractGuardAuthenticator
         $user = $token->getUser();
 
         if (in_array('ROLE_ADMIN', $user->getRoles())) {
-            return new RedirectResponse($this->router->generate('admin_timesheet_index'));
+            return new RedirectResponse($this->router->generate('admin_timesheet_start'));
         }
 
         return new RedirectResponse($this->router->generate('admin_timesheet_new'));

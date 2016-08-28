@@ -451,6 +451,18 @@
                 <source>timesheet.created_successfully</source>
                 <target>Timesheet created successfully</target>
             </trans-unit>
+            <trans-unit id="menu.my_timesheet_list">
+                <source>menu.my_timesheet_list</source>
+                <target>My timesheets</target>
+            </trans-unit>
+            <trans-unit id="label.cost">
+                <source>label.cost</source>
+                <target>Cost</target>
+            </trans-unit>
+            <trans-unit id="label.user">
+                <source>label.user</source>
+                <target>User</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

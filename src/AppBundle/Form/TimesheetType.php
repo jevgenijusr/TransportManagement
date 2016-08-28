@@ -58,18 +58,16 @@ class TimesheetType extends AbstractType
             $form = $event->getForm();
             $timesheet = $event->getData();
             if (null !== $timesheet->getId()) {
-                $form->add('user');
-                $form->add('distance');
-                $form->add('cost');
+                $form->add('distance', null, ['disabled' => true]);
+                $form->add('cost', null, ['disabled' => true]);
             }
         });
 
         $builder->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) {
 
             $timesheet = $event->getData();
-            if (null !== $timesheet->getId()) {
-                $timesheet->setUser($this->token->getToken()->getUser());
-            }
+
+            $timesheet->setUser($this->token->getToken()->getUser());
         });
 
         $builder->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) {

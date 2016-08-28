@@ -87,7 +87,6 @@ class TimesheetController extends Controller
     /**
      * Displays a form to edit an existing Timesheet entity.
      *
-     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}/edit", requirements={"id": "\d+"}, name="admin_timesheet_edit")
      * @Method({"GET", "POST"})
      */
@@ -198,4 +197,18 @@ class TimesheetController extends Controller
         return $this->render('admin/timesheet/index_filtered.html.twig', ['timesheets' => $timesheets]);
     }
 
+    /**
+     * Allows to choose User and Month
+     *
+     * @Security("has_role('ROLE_USER')")
+     * @Route("/user/timesheets", name="admin_timesheet_user_index")
+     */
+    public function userTimesheetsAction(Request $request)
+    {
+        $user = $this->getUser();
+
+        $timesheets = $this->getDoctrine()->getRepository(Timesheet::class)->findByUser($user);
+
+        return $this->render('admin/timesheet/index.html.twig', ['timesheets' => $timesheets]);
+    }
 }
