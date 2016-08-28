@@ -447,6 +447,10 @@
                 <source>label.create_transport</source>
                 <target>Create transport</target>
             </trans-unit>
+            <trans-unit id="timsheet.created_successfully">
+                <source>timesheet.created_successfully</source>
+                <target>Timesheet created successfully</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

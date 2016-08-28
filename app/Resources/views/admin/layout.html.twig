@@ -1,14 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block header_navigation_links %}
-    <li>
-        <a href="{{ path('admin_timesheet_start') }}">
-            <i class="fa fa-list-alt"></i> {{ 'menu.timesheet_list'|trans }}
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('admin_transport_index') }}">
-            <i class="fa fa-list-alt"></i> {{ 'menu.transport_list'|trans }}
-        </a>
-    </li>
+    {% if is_granted('ROLE_ADMIN') %}
+        <li>
+            <a href="{{ path('admin_timesheet_start') }}">
+                <i class="fa fa-list-alt"></i> {{ 'menu.timesheet_list'|trans }}
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('admin_transport_index') }}">
+                <i class="fa fa-list-alt"></i> {{ 'menu.transport_list'|trans }}
+            </a>
+        </li>
+    {% endif %}
 {% endblock %}

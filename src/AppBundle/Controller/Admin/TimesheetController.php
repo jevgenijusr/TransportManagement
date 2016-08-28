@@ -23,6 +23,7 @@ class TimesheetController extends Controller
     /**
      * Lists all Timesheet entities.
      *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/", name="admin_timesheet_index")
      * @Method("GET")
      */
@@ -84,25 +85,9 @@ class TimesheetController extends Controller
     }
 
     /**
-     * Finds and displays a Post entity.
-     *
-     * @Route("/{id}", requirements={"id": "\d+"}, name="admin_timesheet_show")
-     * @Method("GET")
-     */
-    public function showAction(Timesheet $timesheet)
-    {
-
-        $deleteForm = $this->createDeleteForm($timesheet);
-
-        return $this->render('admin/timesheet/show.html.twig', [
-            'timesheet'        => $timesheet,
-            'delete_form' => $deleteForm->createView(),
-        ]);
-    }
-
-    /**
      * Displays a form to edit an existing Timesheet entity.
      *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}/edit", requirements={"id": "\d+"}, name="admin_timesheet_edit")
      * @Method({"GET", "POST"})
      */
@@ -134,8 +119,8 @@ class TimesheetController extends Controller
     /**
      * Creates a form to delete a Timesheet entity by id.
      *
+     * @Security("has_role('ROLE_ADMIN')")
      * @param Timesheet $timesheet The timesheet object
-     *
      * @return \Symfony\Component\Form\Form The form
      */
     private function createDeleteForm(Timesheet $timesheet)
@@ -150,6 +135,7 @@ class TimesheetController extends Controller
     /**
      * Deletes a Timesheet entity.
      *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}", name="admin_timesheet_delete")
      * @Method("DELETE")
      */
@@ -173,6 +159,7 @@ class TimesheetController extends Controller
     /**
      * Allows to choose User and Month
      *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/start", name="admin_timesheet_start")
      */
     public function startAction(Request $request)
@@ -197,6 +184,7 @@ class TimesheetController extends Controller
     /**
      * Filter timesheets based on user id and month
      *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/index/filtered", name="admin_timesheet_index_filtered")
      * @Method("GET")
      */

@@ -40,6 +40,7 @@
                 <td>{{ timesheet.distance }}</td>
                 <td>{{ timesheet.cost }}</td>
 
+                {% if is_granted('ROLE_USER') %}
                 <td>
                     <div class="item-actions">
                         <a href="{{ path('admin_timesheet_edit', { id: timesheet.id }) }}" class="btn btn-sm btn-primary">
@@ -47,6 +48,7 @@
                         </a>
                     </div>
                 </td>
+                {% endif %}
             </tr>
         {% else %}
             <tr>
@@ -58,11 +60,13 @@
 {% endblock %}
 
 {% block sidebar %}
-    <div class="section actions">
-        <a href="{{ path('admin_timesheet_new') }}" class="btn btn-lg btn-block btn-success">
-            <i class="fa fa-plus"></i> {{ 'action.create_timesheet'|trans }}
-        </a>
-    </div>
+    {% if is_granted('ROLE_USER') %}
+        <div class="section actions">
+            <a href="{{ path('admin_timesheet_new') }}" class="btn btn-lg btn-block btn-success">
+                <i class="fa fa-plus"></i> {{ 'action.create_timesheet'|trans }}
+            </a>
+        </div>
+    {% endif %}
 
     {#{{ parent() }}#}
 
