@@ -8,7 +8,6 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th style="width:20px;"> {{ 'label.user'|trans }}</th>
             <th style="width:20px;"> {{ 'label.transport'|trans }}</th>
             <th style="width:20px;"> {{ 'label.date'|trans }}</th>
             <th style="width:20px;"> {{ 'label.client'|trans }}</th>
@@ -26,7 +25,6 @@
         <tbody>
         {% for timesheet in timesheets %}
             <tr>
-                <td>{{ timesheet.user }}</td>
                 <td>{{ timesheet.transport }}</td>
                 <td>{{ timesheet.date|date('Y-m-d') }}</td>
                 <td>{{ timesheet.client }}</td>

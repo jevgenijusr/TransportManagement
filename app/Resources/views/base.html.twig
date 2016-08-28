@@ -36,7 +36,7 @@
                     <div class="container">
                         <div class="navbar-header">
                             <a class="navbar-brand" href="{{ path('homepage') }}">
-                                Symfony Demo
+                                Transport Management
                             </a>
 
                             <button type="button" class="navbar-toggle"
@@ -141,6 +141,14 @@
         #}
 
             <script src="{{ asset('js/app.js') }}"></script>
+            <script>
+                $(document).ready(function() {
+                    $('.js-datepicker').datetimepicker({
+                        viewMode: 'years',
+                        format: 'YYYY-MM'
+                    });
+                });
+            </script>
         {% endblock %}
 
         {# it's not mandatory to set the timezone in localizeddate(). This is done to

@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use AppBundle\Entity\Timesheet;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
@@ -17,6 +18,13 @@ use AppBundle\Services\TimesheetManager;
  */
 class TimesheetType extends AbstractType
 {
+    private $token;
+
+    public function __construct($token)
+    {
+        $this->token = $token;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -49,7 +57,8 @@ class TimesheetType extends AbstractType
 
             $form = $event->getForm();
             $timesheet = $event->getData();
-            if ($timesheet || null !== $timesheet->getId()) {
+            if (null !== $timesheet->getId()) {
+                $form->add('user');
                 $form->add('distance');
                 $form->add('cost');
             }
@@ -58,21 +67,25 @@ class TimesheetType extends AbstractType
         $builder->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) {
 
             $timesheet = $event->getData();
-            
-            $distance = $timesheet->getFinishingMileage() - $timesheet->getStartingMileage();
-
-            $timesheet->setDistance($distance);
-            
+            if (null !== $timesheet->getId()) {
+                $timesheet->setUser($this->token->getToken()->getUser());
+            }
         });
 
         $builder->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) {
 
             $timesheet = $event->getData();
+            $distance = $timesheet->getFinishingMileage() - $timesheet->getStartingMileage();
 
+            $timesheet->setDistance($distance);
+        });
+
+        $builder->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) {
+
+            $timesheet = $event->getData();
             $timesheetManager = new TimesheetManager($timesheet);
-
             $totalCost = $timesheetManager->getTotalCost();
-                
+
             $timesheet->setCost($totalCost);
         });
     }

@@ -238,7 +238,7 @@
 
             <trans-unit id="menu.transport_list">
                 <source>menu.transport_list</source>
-                <target>Transport list</target>
+                <target>Transports</target>
             </trans-unit>
 
             <trans-unit id="post.to_publish_a_comment">
@@ -358,6 +358,46 @@
             <trans-unit id="label.distance">
                 <source>label.distance</source>
                 <target>Distance</target>
+            </trans-unit>
+            <trans-unit id="menu.timesheet_list">
+                <source>menu.timesheet_list</source>
+                <target>Timesheets</target>
+            </trans-unit>
+            <trans-unit id="title.timesheet_list">
+                <source>title.timesheet_list</source>
+                <target>Timesheet list</target>
+            </trans-unit>
+            <trans-unit id="timesheet.no_timesheets_found">
+                <source>timesheet.no_timesheets_found</source>
+                <target>No timesheets found</target>
+            </trans-unit>
+            <trans-unit id="action.create_timesheet">
+                <source>action.create_timesheet</source>
+                <target>Create timesheet</target>
+            </trans-unit>
+            <trans-unit id="title.timesheet_new">
+                <source>title.timesheet_new</source>
+                <target>New timesheet</target>
+            </trans-unit>
+            <trans-unit id="title.edit_timesheet">
+                <source>title.edit_timesheet</source>
+                <target>Edit timesheet</target>
+            </trans-unit>
+            <trans-unit id="action.delete_timesheet">
+                <source>action.delete_timesheet</source>
+                <target>Delete timesheet</target>
+            </trans-unit>
+            <trans-unit id="delete_timesheet_modal.title">
+                <source>delete_timesheet_modal.title</source>
+                <target>Delete timesheet</target>
+            </trans-unit>
+            <trans-unit id="delete_timesheet_modal.body">
+                <source>delete_timesheet_modal.body</source>
+                <target>Are you sure you want to delete timesheet?</target>
+            </trans-unit>
+            <trans-unit id="label.delete_timesheet">
+                <source>label.delete_timesheet</source>
+                <target>Delete timesheet</target>
             </trans-unit>
         </body>
     </file>

@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TimesheetRepository")
  * @ORM\Table(name="symfony_demo_timesheet")
  * @Assert\Callback({"AppBundle\Validators\TimesheetValidator", "validate"})
  */
@@ -98,6 +98,11 @@ class Timesheet
      * @ORM\Column(type="string", nullable=true)
      */    
     private $cost;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     */
+    private $user;
 
     /**
      * @return mixed
@@ -297,5 +302,21 @@ class Timesheet
     public function setCost($cost)
     {
         $this->cost = $cost;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
     }
 }

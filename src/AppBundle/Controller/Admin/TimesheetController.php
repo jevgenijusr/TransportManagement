@@ -4,6 +4,7 @@ namespace AppBundle\Controller\Admin;
 
 use AppBundle\Entity\Timesheet;
 
+use AppBundle\Form\ChooseType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -168,4 +169,45 @@ class TimesheetController extends Controller
 
         return $this->redirectToRoute('admin_timesheet_index');
     }
+
+    /**
+     * Allows to choose User and Month
+     *
+     * @Route("/start", name="admin_timesheet_start")
+     */
+    public function startAction(Request $request)
+    {
+        $form = $this->createForm(ChooseType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            
+            return $this->redirectToRoute('admin_timesheet_index_filtered', [
+                'user_id' => $form->getData()['user']->getId(),
+                'month' => $form->getData()['date']
+            ]);
+        }
+
+        return $this->render('admin/timesheet/choose.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * Filter timesheets based on user id and month
+     *
+     * @Route("/index/filtered", name="admin_timesheet_index_filtered")
+     * @Method("GET")
+     */
+    public function filteredIndexAction(Request $request)
+    {
+        $timesheets = $this->getDoctrine()->getRepository(Timesheet::class)->findForYearAndMonth(
+            $request->query->get('month'),
+            $request->query->get('user_id')
+        );
+
+        return $this->render('admin/timesheet/index_filtered.html.twig', ['timesheets' => $timesheets]);
+    }
+
 }
