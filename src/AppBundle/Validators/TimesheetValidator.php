@@ -28,12 +28,6 @@ class TimesheetValidator
                 ->addViolation();
         }
 
-        if($timesheet->getDepartureFromClientTime() >= $timesheet->getArrivalAtTerminalTime())
-        {
-            $context->buildViolation('Departure from client time should be earlier than arriving at terminal time')
-                ->addViolation();
-        }
-
         $arrivalToClientTime = $timesheet->getArrivalToClientTime();
         $departureFromClientTime = $timesheet->getDepartureFromClientTime();
 

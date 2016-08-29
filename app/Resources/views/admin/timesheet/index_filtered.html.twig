@@ -61,11 +61,13 @@
 {% endblock %}
 
 {% block sidebar %}
+    {% if is_granted('ROLE_USER') %}
     <div class="section actions">
         <a href="{{ path('admin_timesheet_new') }}" class="btn btn-lg btn-block btn-success">
             <i class="fa fa-plus"></i> {{ 'action.create_timesheet'|trans }}
         </a>
     </div>
+    {% endif %}
 
     {#{{ parent() }}#}
 

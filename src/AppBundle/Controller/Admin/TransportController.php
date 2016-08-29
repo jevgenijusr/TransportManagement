@@ -48,26 +48,17 @@ class TransportController extends Controller
     {
         $transport = new Transport();
         
-        // See http://symfony.com/doc/current/book/forms.html#submitting-forms-with-multiple-buttons
         $form = $this->createForm(TransportType::class, $transport)
             ->add('saveAndCreateNew', SubmitType::class);
 
         $form->handleRequest($request);
 
-        // the isSubmitted() method is completely optional because the other
-        // isValid() method already checks whether the form is submitted.
-        // However, we explicitly add it to improve code readability.
-        // See http://symfony.com/doc/current/best_practices/forms.html#handling-form-submits
         if ($form->isSubmitted() && $form->isValid()) {
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($transport);
             $entityManager->flush();
 
-            // Flash messages are used to notify the user about the result of the
-            // actions. They are deleted automatically from the session as soon
-            // as they are accessed.
-            // See http://symfony.com/doc/current/book/controller.html#flash-messages
             $this->addFlash('success', 'transport.created_successfully');
 
             if ($form->get('saveAndCreateNew')->isClicked()) {
