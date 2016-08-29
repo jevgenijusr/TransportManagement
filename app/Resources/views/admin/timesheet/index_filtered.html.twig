@@ -37,14 +37,6 @@
                 <td>{{ timesheet.finishingMileage }}</td>
                 <td>{{ timesheet.distance }}</td>
                 <td>{{ timesheet.cost }}</td>
-
-                <td>
-                    <div class="item-actions">
-                        <a href="{{ path('admin_timesheet_edit', { id: timesheet.id }) }}" class="btn btn-sm btn-primary">
-                            <i class="fa fa-edit"></i> {{ 'action.edit'|trans }}
-                        </a>
-                    </div>
-                </td>
             </tr>
         {% else %}
             <tr>

@@ -39,6 +39,7 @@
                 <td>{{ timesheet.finishingMileage }}</td>
                 <td>{{ timesheet.distance }}</td>
                 <td>{{ timesheet.cost }}</td>
+                {% if is_granted('ROLE_USER') %}
                 <td>
                     <div class="item-actions">
                         <a href="{{ path('admin_timesheet_edit', { id: timesheet.id }) }}" class="btn btn-sm btn-primary">
@@ -46,6 +47,7 @@
                         </a>
                     </div>
                 </td>
+                {% endif %}
             </tr>
         {% else %}
             <tr>
