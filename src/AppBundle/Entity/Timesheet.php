@@ -47,6 +47,8 @@ class Timesheet
      *     type="integer",
      *     message="The value {{ value }} is not a valid {{ type }}."
      * )
+     * @Assert\NotBlank()
+     * @Assert\Range(min=1)
      */
     private $startingMileage;
 
@@ -61,6 +63,8 @@ class Timesheet
      *     type="integer",
      *     message="The value {{ value }} is not a valid {{ type }}."
      * )
+     * @Assert\NotBlank()
+     * @Assert\Range(min=1)
      */
     private $offloadingTime;
 
@@ -82,6 +86,8 @@ class Timesheet
      *     type="integer",
      *     message="The value {{ value }} is not a valid {{ type }}."
      * )
+     * @Assert\NotBlank()
+     * @Assert\Range(min=1)
      */
     private $finishingMileage;
 

@@ -29,6 +29,8 @@ class Transport
      *     type="integer",
      *     message="The value {{ value }} is not a valid {{ type }}."
      * )
+     * @Assert\NotBlank()
+     * @Assert\Range(min=1)
      */
     private $standing;
 
@@ -38,6 +40,8 @@ class Transport
      *     type="integer",
      *     message="The value {{ value }} is not a valid {{ type }}."
      * )
+     * @Assert\NotBlank()
+     * @Assert\Range(min=1)     
      */
     private $driving;
 
@@ -47,6 +51,8 @@ class Transport
      *     type="integer",
      *     message="The value {{ value }} is not a valid {{ type }}."
      * )
+     * @Assert\NotBlank()
+     * @Assert\Range(min=1)     
      */
     private $offloading;
 
