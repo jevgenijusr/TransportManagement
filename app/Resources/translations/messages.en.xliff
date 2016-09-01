@@ -463,6 +463,10 @@
                 <source>label.user</source>
                 <target>User</target>
             </trans-unit>
+            <trans-unit id="transport.created_successfully">
+                <source>transport.created_successfully</source>
+                <target>Transport created successfully</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
